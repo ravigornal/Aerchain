@@ -40,7 +40,9 @@ def Level2(parent):
 @app.route('/writelevel2/<parent>', methods = ['POST'])
 def writeLevel2(parent):
     brand_name = request.json['brand_name']
-    brand = {'brand_name' : brand_name, 'parent' : parent}
+    ancestor = []
+    ancestor.append(parent)
+    brand = {'brand_name' : brand_name, 'parent' : parent,'ancestors':ancestor}
     count = mongo.db.parentreference.find(brand).count()
     if(count == 0):
         mongo.db.parentreference.insert_one(brand)
@@ -63,7 +65,7 @@ def writeLevel3(parent):
     color = request.json['color']
     price = request.json['price']
     manufacturer = request.json['manufacturer']
-    dimension= request.json['dimension']
+    dimension = request.json['dimension']
     category = {'name' : name, 'color':color,'price':price,'manufacturer':manufacturer,'dimension':dimension,'parent' : parent}
     count = mongo.db.parentreference.find(category).count()
     if(count == 0):
