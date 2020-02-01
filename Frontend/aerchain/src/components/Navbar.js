@@ -17,7 +17,7 @@ class Navbar extends React.Component{
                             <Link to="/"><a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a></Link>
                         </li>
                         <li class="nav-item">
-                            <Link to="/categories"><a class="nav-link" href="/view">Categories </a></Link>
+                            <Link to="/categories"><a class="nav-link" href="/categories">Categories </a></Link>
                         </li>
                     </ul>
                 </div>
